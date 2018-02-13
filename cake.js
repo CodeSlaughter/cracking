@@ -1,4 +1,4 @@
-var maxProfit = (array) => {
+var maxProfitFunc = (array) => {
     var min = array[0];
     var maxProfit = array[1] - array[0];
 
@@ -10,3 +10,5 @@ var maxProfit = (array) => {
     }
     return maxProfit;
 }
+
+var productsOfArray

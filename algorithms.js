@@ -16,6 +16,8 @@ var bubbleSort = (array) => {
     return array;
 }
 
+//BFS
+
 //Palindrome
 
 var isPalindrome = (string) => {

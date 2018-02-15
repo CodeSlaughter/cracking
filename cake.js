@@ -128,7 +128,7 @@ function deleteNode(linked, val) {
   }
   return linked;
 }
-
+//Question 26
 function charRev(stringLit) {
   var string = stringLit.split('')
   for (var i = 0; i < string.length / 2; i++) {

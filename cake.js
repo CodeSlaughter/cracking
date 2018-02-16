@@ -108,6 +108,63 @@ class temperatureTracker {
     }
   }
 }
+//Question 9
+function validBin(tree){
+  var nodeAndBoundsStack = [{node: tree, lowerBound: -Infinity, upperBound: Infinity}];
+  
+  while(nodeAndBoundsStack.length){
+    var currentNode = nodeAndBoundsStack.pop()
+    var node = currentNode.node
+    var upperBound = currentNode.upperBound;
+    var lowerBound = currentNode.lowerBound;
+    console.log(node.value);
+    if(node.value > upperBound || node.value < lowerBound){
+      return false;
+    }
+    if(node.right){
+      nodeAndBoundsStack.push({node: node.right, upperBound: upperBound, lowerBound: node.value});
+    }
+    if(node.left){
+      nodeAndBoundsStack.push({node: node.left, upperBound: node.value, lowerBound: lowerBound})
+    }
+  }
+  return true
+}
+//Question 10
+function secondLargest(tree){
+  var nodeStack = [tree];
+  while(nodeStack.length > 0){
+    var node = nodeStack.pop();
+    if(node.right){
+      if(node.right.right === null){
+        if(!node.right.left){
+          return node.value
+        } else {
+          nodeStack.push(node.right.left)
+        }
+      } else {
+        nodeStack.push(node.right)
+      }
+    }
+  }
+}
+//Question 12
+function binarySearch(numArray, num){
+  var leftPointer = numArray[0]
+  var rightPointer = numArray[numArray.length - 1]
+  while(leftPointer < rightPointer){
+    var midPoint = leftPointer + ((rightPointer - leftPointer) / 2);
+    if (midPoint === num){
+      return true
+    }
+    if(num > midPoint){
+      leftPointer = midPoint
+    } else {
+      rightPointer = midPoint
+    }
+  }
+  return false
+}
 //Question 17
 var text = 'outside';
 function logIt() {
@@ -187,6 +244,19 @@ function quickestSort(scores, highesPoss){
   }
   return sorted;
 }
+
+//Question 33
+function secondAppearance(array){
+  var n = array.length - 1;
+  console.log(n)
+  var triSum = (Math.pow(n, 2) + n) / 2;
+  var sum = 0;
+  for(var i = 0 ; i < array.length; i++){
+    sum += array[i];
+  }
+  return sum - triSum;
+}
+
 function matchyBrackies(string, position){
   var brackiesStore = []
   var openers = ['{', '[', '('];
@@ -201,3 +271,25 @@ function matchyBrackies(string, position){
   return brackiesStore[brackiesStore.length - revPosition - 1];
 }
 
+
+// {
+//   value: 15, 
+//   left: { 
+//     value: 10, 
+//     left: { 
+//       value: 4, 
+//       left: null, 
+//       right: null
+//     }, 
+//     right: {
+//       value: 11, 
+//       left: null, 
+//       right: null
+//     }
+//   }, 
+//   right: {
+//     value: 20, 
+//     left: null, 
+//     right: null
+//   }
+// }

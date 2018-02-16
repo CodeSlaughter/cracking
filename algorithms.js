@@ -17,6 +17,31 @@ var bubbleSort = (array) => {
 }
 
 //BFS
+function bfs(graph, startNode, endNode){
+    //create a queue
+    var nodesToVisit = [];
+    nodesToVisit.push(startNode);
+    
+    //keep track of visited
+    var nodesSeen = new Set([startNode]);
+
+    while (nodesToVisit.length > 0){
+        var currentNode = nodesToVisit.shift();
+
+        //stop if node found
+        if (currentNode === endNode ){
+            break;
+        }
+
+        //add current nodes neighbors 1 by 1
+        graph[currentNode].forEach(function(neighbor){
+            if (!nodesSeen.has(neighbor)){
+                nodesSeen.add(neighbor);
+                nodesToVisit.push(neighbor)
+            }
+        })
+    }
+}
 
 //Palindrome
 

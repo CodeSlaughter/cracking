@@ -148,6 +148,21 @@ function secondLargest(tree){
     }
   }
 }
+//Question 11 WIP
+function pageStore(dataStore, word){
+  var currentNode = dataStore;
+  for(var i = 0; i < word.length; i++){
+    if(!currentNode.hasOwnProperty(word[i])){
+      if (i === word.length - 1){
+        currentNode[word[i]] = 'endOfWord';
+      } else {
+        currentNode[word[i]] = {}
+      }
+    }
+    currentNode = currentNode[word[i]];
+  }
+  return dataStore
+}
 //Question 12
 function binarySearch(numArray, num){
   var leftPointer = numArray[0]

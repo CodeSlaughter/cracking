@@ -180,6 +180,50 @@ function binarySearch(numArray, num){
   }
   return false
 }
+//Question 14
+function flightMovies (time, movies){
+  var moviesHash = []
+  for (var i = 0 ; i < movies.length; i++){
+    var remainingTime = time - movies[i]
+    if (moviesHash[remainingTime]){
+      return true
+    }
+    moviesHash[movies[i]] = true
+  }
+  return false
+}
+//Question 15 Memo
+class FibWrapper{
+  constructor(){
+    this.memo = {}
+  }
+  
+  fib(n){
+    var result;
+    if(n === 1 || n === 0){
+      result = n
+    } else {
+      result = this.fib(n -1) + this.fib(n-2)
+    }
+    this.memo[n] = result;
+    return result;
+  }
+}
+//Question 15 Bottom up
+function fibber(n){
+  var result;
+  var prevPrev = 0;
+  var prev = 1;
+  if (n === 0 || n === 1){
+    return n;
+  }
+  for (var i = 1; i < n ; i++){
+    result = prev + prevPrev;
+    prevPrev = prev;
+    prev = i;
+  }
+  return result
+}
 //Question 17
 var text = 'outside';
 function logIt() {
@@ -187,6 +231,53 @@ function logIt() {
   var text = 'inside';
 }
 //logIt();
+//Question 20 
+function Stack(){
+  this.items = [];
+}
+
+Stack.prototype.push = function(item){
+  this.items.push();
+};
+
+Stack.prototype.pop = function() {
+  if (!this.items.length) {
+    return null;
+  }
+  return this.items.pop();
+}
+
+Stack.prototype.peek = function() {
+  if(!this.items.length) {
+    return null;
+  }
+  return this.items[this.items.length - 1];
+}
+
+class Stack {
+  constructor() {
+    this.dataStore = []; 
+    this.currentMax = -Infinity;
+    this.maxStack = [];
+  }
+  Spush(n){
+    if(n > this.currentMax){
+      this.currentMax = n;
+      this.maxStack.push(n);
+    }
+    console.log(this.dataStore)
+    this.dataStore.push(n);
+  }
+  Spop(){
+    if( this.dataStore.pop() === this.currentMax ){
+      this.maxStack.pop()
+      this.currentMax = this.maxStack[this.maxStack.length - 1]
+    }
+  }
+  getMax(){
+    return this.maxStack;
+  }
+}
 
 //Question 22
 function deleteNode(linked, val) {

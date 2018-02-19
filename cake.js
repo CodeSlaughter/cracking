@@ -78,6 +78,8 @@ function makeChange(amount, coins) {
   })
   return changeWays[amount];
 }
+//Question 6
+
 //Question 7
 class temperatureTracker {
   constructor() {

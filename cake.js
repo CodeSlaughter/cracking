@@ -78,8 +78,6 @@ function makeChange(amount, coins) {
   })
   return changeWays[amount];
 }
-//Question 6
-
 //Question 7
 class temperatureTracker {
   constructor() {
@@ -182,6 +180,37 @@ function binarySearch(numArray, num){
   }
   return false
 }
+//Question 13
+function findRotation(array){
+  var leftPointer = 0;
+  var rightPointer = array.length - 1;
+  var midPoint;
+  while(rightPointer > leftPointer){
+    midPoint = Math.floor(leftPointer + ((rightPointer - leftPointer) / 2));
+    if(array[midPoint] > array[0]){
+      leftPointer = midPoint;
+    } else {
+      rightPointer = midPoint;
+    }
+    if ( leftPointer + 1 === rightPointer){
+      break;
+    }
+  }
+  return array[rightPointer]
+}
+var words = [
+  'ptolemaic',
+  'retrograde',
+  'supplant',
+  'undulate',
+  'xenoepist',
+  'asymptote',  // <-- rotates here!
+  'babka',
+  'banoffee',
+  'engender',
+  'karpatka',
+  'othellolagkage',
+]
 //Question 14
 function flightMovies (time, movies){
   var moviesHash = []

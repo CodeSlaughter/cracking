@@ -407,7 +407,84 @@ function matchyBrackies(string, position){
   var revPosition = brackiesStore.indexOf(position);
   return brackiesStore[brackiesStore.length - revPosition - 1];
 }
+//Question 37
+function rand5(){
+  var result = 7;
+  while (result > 5){
+    result = rand7()
+  } 
+  return result;
+}
+//Question 43
+//mine
+function cookieMerger (array1, array2){
+  var loopLength = array1.length + array2.length;
+  var result = [];
+  for (var i = 0 ; i < loopLength; i++){
+    console.log(i)
+    if (array1.length < 1){//1
+      result = result.concat(array2)
+    }
+    else if (array2.length < 1){
+      console.log(array2.length)
+      result = result.concat(array1)
+    }
+    else if (array1[0] < array2[0]){
+      result.push(array1.shift());
+    }
+    else if (array2[0] < array1[0]){
+      result.push(array2.shift());
+    }
+  }
+  return result;
+}
+//Question 44
+//Keep reading
 
+//Question 46
+function bfs (graph, startNode, endNode){
+  var nodesToVisit = [startNode];
+  var nodeTracker= {};
+  nodeTracker[startNode] = null;
+  var currentNode;
+  
+  while (nodesToVisit.length > 0){
+    currentNode = nodesToVisit.shift();
+    
+    if(currentNode === endNode){
+      return findPath(nodeTracker, startNode, endNode);
+    }
+    graph[currentNode].forEach(function(neighbor){
+      if(!nodeTracker.hasOwnProperty(neighbor)){
+        nodesToVisit.push(neighbor);
+        nodeTracker[neighbor] = currentNode;
+      }
+    })
+  } return null
+}
+
+function findPath(object, startNode, endNode){
+  var currentNode = endNode;
+  var path = [];
+  while (currentNode !== null){
+    path.push(currentNode)
+    currentNode = object[currentNode];
+    console.log(path)
+  }
+  return path.reverse();
+}
+
+  var network = {
+    'Min'     : ['William', 'Jayden', 'Omar'],
+    'William' : ['Min', 'Noam'],
+    'Jayden'  : ['Min', 'Amelia', 'Ren', 'Noam'],
+    'Ren'     : ['Jayden', 'Omar'],
+    'Amelia'  : ['Jayden', 'Adam', 'Miguel'],
+    'Adam'    : ['Amelia', 'Miguel', 'Sofia', 'Lucas'],
+    'Miguel'  : ['Amelia', 'Adam', 'Liam', 'Nathan'],
+    'Noam'    : ['Nathan', 'Jayden', 'William'],
+    'Omar'    : ['Ren', 'Min', 'Scott'],
+};
 
 // {
 //   value: 15, 

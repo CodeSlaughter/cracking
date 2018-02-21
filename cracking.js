@@ -80,3 +80,5 @@ console.log(isPermutationAlt('bob', 'bbo'));
 // var matrixRotate = (array) => {
 //     for (var i = 0; i < array[])
 // }
+
+//6.

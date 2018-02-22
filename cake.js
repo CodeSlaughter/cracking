@@ -262,6 +262,8 @@ function logIt() {
   var text = 'inside';
 }
 //logIt();
+//Question 18
+//read
 //Question 20 
 function Stack(){
   this.items = [];
@@ -363,6 +365,30 @@ function permPal(string) {
     return true
   } return false
 }
+//Question 31
+function permutations(word){
+  if(word.length === 1){
+    return new Set([word]);
+  }
+  
+  var permutationsResults = new Set();
+  var lastChar = word.slice(word.length-1);
+  var restOfWord = word.slice(0, word.length - 1);
+  //console.log(lastChar, restOfWord)
+  var permsWithoutLast = permutations(restOfWord)
+  //console.log(permsWithoutLast)
+  permsWithoutLast.forEach(function(element){
+    //insert last char into each position
+    console.log(element)
+    for(var position = 0; position <= restOfWord.length; position++){
+      var newWord = element.slice(0, position) + lastChar + element.slice(position)
+      //console.log(newWord)
+      permutationsResults.add(newWord)
+    }
+  })
+  //console.log(permutationsResults)
+  return permutationsResults
+}
 //Question 32
 function quickestSort(scores, highesPoss){
   var results = [];
@@ -415,6 +441,8 @@ function rand5(){
   } 
   return result;
 }
+//Question 39
+//understood
 //Question 43
 //mine
 function cookieMerger (array1, array2){

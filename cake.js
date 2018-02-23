@@ -264,6 +264,28 @@ function logIt() {
 //logIt();
 //Question 18
 //read
+//Question 19
+class Queue {
+  constructor(){
+    this.stack1 = [];
+    this.stack2 = [];
+  }
+  enqueue(item){
+    while (this.stack2.length > 0){
+      this.stack1.push(this.stack2.pop())
+    }
+    this.stack1.push(item);
+    //console.log(this.stack1, this.stack2)
+  }
+  dequeue(){
+    while (this.stack1.length > 0){
+      this.stack2.push(this.stack1.pop())
+      //console.log(this.stack1)
+    }
+    //console.log(this.stack1, this.stack2)
+    return this.stack2.pop();
+  }
+}
 //Question 20 
 function Stack(){
   this.items = [];

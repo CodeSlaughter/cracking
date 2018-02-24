@@ -536,24 +536,24 @@ function findPath(object, startNode, endNode){
     'Omar'    : ['Ren', 'Min', 'Scott'],
 };
 
-// {
-//   value: 15, 
-//   left: { 
-//     value: 10, 
-//     left: { 
-//       value: 4, 
-//       left: null, 
-//       right: null
-//     }, 
-//     right: {
-//       value: 11, 
-//       left: null, 
-//       right: null
-//     }
-//   }, 
-//   right: {
-//     value: 20, 
-//     left: null, 
-//     right: null
-//   }
-// }
+var tree = {
+  value: 15, 
+  left: { 
+    value: 10, 
+    left: { 
+      value: 4, 
+      left: null, 
+      right: null
+    }, 
+    right: {
+      value: 11, 
+      left: null, 
+      right: null
+    }
+  }, 
+  right: {
+    value: 20, 
+    left: null, 
+    right: null
+  }
+}
